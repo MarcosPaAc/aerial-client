@@ -5,9 +5,10 @@ import Layout from './components/Layout';
 import { Routes, Route } from 'react-router-dom';
 import Home from './components/home/Home';
 
+
 function App() {
 
-  const [flights, setData] = useState([]);
+  const [flights, setData] = useState();
   const getFlights = async () => {
     
   try {
@@ -16,7 +17,7 @@ function App() {
     
     console.log(response.data);
 
-    setData(response.data);
+    setFlights(response.data);
 
   } catch (error) {
 

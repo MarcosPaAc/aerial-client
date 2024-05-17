@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hotel Search</title>
+   <link rel="stylesheet" href="style.css">
+  
+</head>
+<body>
+  <header>
+    <h1>Aerial</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="flights.html">Flights</a></li>
+        <li><a href="hotels.html">Hotels</a></li>
+        <li><a href="books.html">Booking</a></li>
+        <li><a href="account.html">Account</a></li>
+      </ul>
+    </nav>
+  </header>
+  <h2>Search Hotels</h2>
+  <div id="hotels"></div>
+
+  <script>
+    // JavaScript code
+    const hotels = [
+      { name: 'Hotel A', location: 'New York', roomType: 'Small', price: 100, distance: '2 miles' },
+      { name: 'Hotel B', location: 'New York', roomType: 'Medium', price: 150, distance: '3 miles' },
+      { name: 'Hotel C', location: 'New York', roomType: 'Large', price: 200, distance: '4 miles' },
+      { name: 'Hotel D', location: 'Los Angeles', roomType: 'Small', price: 120, distance: '2 miles' },
+      { name: 'Hotel E', location: 'Los Angeles', roomType: 'Medium', price: 180, distance: '3 miles' },
+      { name: 'Hotel F', location: 'Los Angeles', roomType: 'Large', price: 250, distance: '4 miles' },
+      { name: 'Hotel G', location: 'Chicago', roomType: 'Small', price: 90, distance: '2 miles' },
+      { name: 'Hotel H', location: 'Chicago', roomType: 'Medium', price: 140, distance: '3 miles' },
+      { name: 'Hotel I', location: 'Chicago', roomType: 'Large', price: 190, distance: '4 miles' },
+      { name: 'Hotel J', location: 'Miami', roomType: 'Small', price: 110, distance: '2 miles' },
+      { name: 'Hotel K', location: 'Miami', roomType: 'Medium', price: 160, distance: '3 miles' },
+      { name: 'Hotel L', location: 'Miami', roomType: 'Large', price: 210, distance: '4 miles' },
+      { name: 'Hotel M', location: 'Denver', roomType: 'Small', price: 130, distance: '2 miles' },
+      { name: 'Hotel N', location: 'Denver', roomType: 'Medium', price: 170, distance: '3 miles' },
+      { name: 'Hotel O', location: 'Denver', roomType: 'Large', price: 220, distance: '4 miles' }
+      // Add more hotels as needed
+    ];
+
+    function displayHotels(hotels) {
+      const hotelsContainer = document.getElementById('hotels');
+      hotelsContainer.innerHTML = '';
+      hotels.forEach(hotel => {
+        const hotelElement = document.createElement('div');
+        hotelElement.classList.add('hotel');
+        hotelElement.innerHTML = `
+          <h3>${hotel.name}</h3>
+          <p>Location: ${hotel.location}</p>
+          <p>Room Type: ${hotel.roomType}</p>
+          <p>Price: $${hotel.price}</p>
+          <p>Distance: ${hotel.distance}</p>
+          <button class="book-btn" onclick="bookHotel('${hotel.name}')">Book Now</button>
+        `;
+        hotelsContainer.appendChild(hotelElement);
+      });
+    }
+
+    function searchHotels() {
+      const location = document.getElementById('location').value.trim().toLowerCase();
+      const price = document.getElementById('price').value;
+      let filteredHotels = hotels;
+      if (location !== '') {
+        filteredHotels = filteredHotels.filter(hotel => hotel.location.toLowerCase().includes(location));
+      }
+      if (price === 'low') {
+        filteredHotels.sort((a, b) => a.price - b.price);
+      } else if (price === 'high') {
+        filteredHotels.sort((a, b) => b.price - a.price);
+      }
+      displayHotels(filteredHotels);
+    }
+
+    function bookHotel(name) {
+      // Redirect to booking page with hotel name
+      window.location.href = `books.html?hotel=${name}`;
+    }
+
+    // Initial display of hotels
+    displayHotels(hotels);
+  </script>
+</body>
+</html>
