@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Local USA Flights</title>
   <link rel="stylesheet" href="style.css">
+   <link rel="stylesheet" href="flights.css"> <!-- Flights-specific CSS -->
 </head>
 <body>
   <header>
@@ -133,9 +134,45 @@
         }
       });
 
-      // Initial rendering of state options
-      renderStateOptions();
+    document.addEventListener('DOMContentLoaded', function() {
+      const flightOptions = [
+        // Flight options data
+      ];
+
+      function renderFlights() {
+        const flightResults = document.getElementById('flight-options');
+        flightResults.innerHTML = '';
+
+        flightOptions.forEach(flight => {
+          const flightElement = document.createElement('div');
+          flightElement.classList.add('flight-option');
+          flightElement.innerHTML = `
+            <p><strong>From:</strong> ${flight.from}</p>
+            <p><strong>To:</strong> ${flight.to}</p>
+            <p><strong>Class:</strong> ${flight.class}</p>
+            <p><strong>Price:</strong> $${flight.price}</p>
+          `;
+
+          // Create "Book Now" button and append it after the price paragraph
+          const bookNowButton = document.createElement('button');
+          bookNowButton.textContent = 'Book Now';
+          bookNowButton.classList.add('book-flight');
+          bookNowButton.addEventListener('click', function() {
+            // Handle book flight functionality here
+          });
+          flightElement.appendChild(bookNowButton);
+
+          flightResults.appendChild(flightElement);
+        });
+      }
+
+      // Other event listeners and functions
+
+      // Initial rendering of flight options
+      renderFlights();
     });
+    });
+
   </script>
 
 

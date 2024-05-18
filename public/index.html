@@ -25,6 +25,8 @@
         <li><a href="hotels.html">Hotels</a></li>
         <li><a href="books.html">Booking</a></li>
         <li><a href="account.html">Account</a></li>
+        
+        
       </ul>
     </nav>
   </header>
@@ -56,7 +58,7 @@
         </div>
       </div>
     </section>
-    <<section id="map">
+    <section id="map">
       <div id="mapid"></div> <!-- This div will hold the map -->
     </section>
     <section id="about">
@@ -84,5 +86,29 @@
     L.marker([40.7128, -74.0060]).addTo(map) // Add a marker at New York City
       .bindPopup('New York City<br> Welcome to the Big Apple!')
       .openPopup();
+    // Function to handle booking on the home page
+    function handleBookingOnHomePage() {
+        // Find the book now button
+        const bookNowButton = document.querySelector('.book-now-btn');
+
+        // Add click event listener to the book now button
+        bookNowButton.addEventListener('click', function() {
+            // Retrieve information about the booking
+            const bookingInfo = {
+                // Add your booking information here, for example:
+                itemName: 'Flight to New York',
+                price: 200,
+                // Add more properties as needed
+            };
+
+            // Add the item to the cart
+            addItemToCart(bookingInfo);
+            alert('Item added to cart!');
+        });
+    }
+
+    // Call the function to handle booking on the home page when the DOM content is loaded
+    document.addEventListener('DOMContentLoaded', handleBookingOnHomePage);
+
   </script>
 </html>

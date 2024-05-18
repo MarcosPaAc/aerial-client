@@ -1,46 +1,96 @@
-<div id="signup-modal" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <h2>Sign Up Now</h2>
-      <p>Be a member of the Aerial family</p>
-      <form id="signup-form">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required><br>
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required><br>
-        <label for="card">Card Information:</label>
-        <input type="text" id="card" name="card" required><br>
-        <label for="subscription">Subscription Type:</label>
-        <select id="subscription" name="subscription" required>
-          <option value="basic">Basic</option>
-          <option value="premium">Premium</option>
-          <option value="ultimate">Ultimate</option>
-        </select><br>
-        <button type="submit">Register</button>
-      </form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up Page</title>
+  <style>
+    /* Add your CSS styles here */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .signup-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .signup-box {
+      background-color: #f8f8f8;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    .input-group {
+      margin-bottom: 20px;
+    }
+    .input-group label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    .input-group input {
+      padding: 10px;
+      width: 100%;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+    .signup-btn, .guest-btn, .login-btn {
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-right: 10px;
+    }
+    .signup-btn:hover, .guest-btn:hover, .login-btn:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="signup-container">
+    <div class="signup-box">
+      <h2>Ready to Login?</h2>
+      <div class="input-group">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" placeholder="Enter your username">
+      </div>
+      <div class="input-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password">
+      </div>
+      <button class="signup-btn">Sign Up Now</button>
+      <button class="guest-btn">Continue as Guest</button>
+      <button class="login-btn">Log In Now</button>
     </div>
   </div>
-  <div id="signup-modal" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <h2>Sign Up Now</h2>
-      <p>Be a member of the Aerial family</p>
-      <form id="signup-form">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required><br>
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required><br>
-        <label for="card">Card Information:</label>
-        <input type="text" id="card" name="card" required><br>
-        <label for="subscription">Subscription Type:</label>
-        <select id="subscription" name="subscription" required>
-          <option value="basic">Basic</option>
-          <option value="premium">Premium</option>
-          <option value="ultimate">Ultimate</option>
-        </select><br>
-        <button type="submit">Register</button>
-      </form>
-    </div>
-  </div>
-  
-  
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const signupBtn = document.querySelector('.signup-btn');
+      const guestBtn = document.querySelector('.guest-btn');
+      const loginBtn = document.querySelector('.login-btn');
+
+      signupBtn.addEventListener('click', function() {
+        // Navigate to the sign-up confirmation page
+        window.location.href = 'index.html';
+      });
+
+      guestBtn.addEventListener('click', function() {
+        // Navigate to the home page
+        window.location.href = 'index.html';
+      });
+
+      loginBtn.addEventListener('click', function() {
+        // Navigate to the home page
+        window.location.href = 'index.html';
+      });
+    });
+  </script>
+</body>
+</html>
