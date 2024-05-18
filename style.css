@@ -1,0 +1,470 @@
+/* body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+} */
+
+/* Global CSS */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Header CSS */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Add a semi-transparent background */
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100; /* Ensure the header stays on top */
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo-container img {
+  height: 30px; /* Adjust height as needed */
+  margin-right: 10px;
+}
+
+.logo-container h1 {
+  font-size: 30px;
+  color: #fff;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding:30px;
+}
+
+nav ul li {
+  display: inline;
+  margin-left: 20px;
+}
+
+nav ul li:first-child {
+  margin-left: 0;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Homepage Background */
+#home {
+  /*background-image: url('https://static.toiimg.com/photo/msid-103232798,width-96,height-65.cms'); */
+  background-size: cover;
+  background-position: center;
+  height:100vh;
+  padding-top: 80px; /* Ensure the content is pushed below the header */
+}
+
+/* Other Pages Background */
+main {
+  background-image: url('https://www.kayak.co.uk/news/wp-content/uploads/sites/5/2022/01/DEST_USA_NYC_EMPIRE_shutterstock_409606294-6.jpg');  
+  background-size: cover;
+  background-position: center;
+  padding-top: 80px; /* Ensure the content is pushed below the header */
+}
+
+section {
+  width: 100%;
+  max-width: 600px; /* Adjusted maximum width */
+  background-color: #f8f1f1;
+  padding: 30px;
+  margin-bottom: 20px; /* Added margin-bottom */
+  border-radius: 20px; /* Added border radius */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Added box shadow */
+  align-items: right;
+  background-position: center;
+  height:80px;
+}
+
+/* for banner*/
+/* Style for the banner */
+.banner {
+  text-align: center;
+  background-color: #e0d1d1;
+  padding: 20px;
+}
+
+.banner h2 {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.banner p {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+
+/* Style for the packages */
+.packages {
+  display: flex;
+  justify-content: flex-end;
+  background-color: #ffffff;
+  padding: 20px;
+  transition: opacity 0.5s;
+}
+
+.package {
+  flex: 0 0 30%; /* Adjust the width of the packages as needed */
+  margin-left: 20px; /* Adjust the space between packages */
+}
+
+.package h3 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  padding: 20px;
+}
+
+.package img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.package p {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.package .btn {
+  display: block;
+  background-color: #007bff;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.package .btn:hover {
+  background-color: #0056b3;
+}
+
+/* Styling for fade in and out effect */
+.fade-in {
+  opacity: 1;
+}
+
+.fade-out {
+  opacity: 2;
+  pointer-events: none; /* Disable pointer events when faded out */
+}
+
+#map {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%; /* Fills the height of the parent container */
+}
+
+#mapid {
+  height: 400px;
+  width: 100%; /* Added width to fill the parent container */
+}
+
+/*flights*/
+.flight-options {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.filters label,
+.filters select,
+.filters input[type="date"] {
+  margin-bottom: 10px;
+}
+
+.filters select {
+  width: 150px;
+  padding: 5px;
+}
+
+.filters input[type="text"],
+.filters input[type="date"] {
+  width: 200px;
+  padding: 5px;
+}
+
+.filters button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.filters button:hover {
+  background-color: #0056b3;
+}
+
+.flight-results {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.flight-option {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.flight-option:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.flight-option h3 {
+  font-size: 18px;
+  margin: 0;
+}
+
+.flight-option p {
+  margin: 5px 0;
+}
+
+/* Footer CSS */
+footer {
+  background-color: #d7c6c6;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+/*booking*/
+/* Booking Container */
+.booking-container {
+  max-width: 800px;
+  margin: 150px auto 20px; /* Adjust margin to center and push content below header */
+  padding: 20px;
+  background-color: #fff; /* Set background color to white */
+  border-radius: 10px; /* Add border radius */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add box shadow */
+  padding-bottom: 70px; /* Add padding to the bottom of the container */
+  position: relative; /* Set position to relative for absolute positioning */
+}
+
+.booking-content {
+  margin-bottom: 20px;
+}
+
+.booking-steps {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.step {
+  font-weight: bold;
+}
+
+.active {
+  color: blue; /* Active step color */
+}
+
+.customer-info input,
+.payment-info input {
+  margin-bottom: 10px;
+  width: calc(100% - 20px); /* Adjust width and remove default padding */
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #007bff; /* Set button background color */
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px; /* Add border radius */
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
+
+button:hover {
+  background-color: #0056b3; /* Darken button color on hover */
+}
+
+/* Footer CSS */
+footer {
+  background-color: #b6aaaa;
+  color: #fff;
+  text-align: center;
+  padding: 1px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 50%;
+}
+/* Account Page CSS */
+/* Account Page CSS */
+.container {
+    display: flex;
+}
+
+/* Sidebar CSS */
+
+/* Content CSS */
+.content {
+    flex: 1;
+    padding: 60px;
+ 
+}
+
+.profile-section {
+    margin-bottom: 20px;
+  height:60px;
+}
+
+
+
+  /* Sidebar CSS */
+  .sidebar {
+      width: 200px;
+      background-color: #f4f4f4;
+      padding: 20px;
+      height: 100%; /* Adjust sidebar height */
+      border-radius: 10px; /* Soften the edges */
+  }
+
+  .sidebar ul {
+      list-style-type: none;
+      padding: 0;
+  }
+
+  .sidebar ul li {
+      margin-bottom: 10px;
+      font-size: 16px; /* Increase font size */
+  }
+
+  .sidebar ul li a {
+      text-decoration: none; /* Remove underline */
+      color: black; /* Set text color to black */
+  }
+
+  .sidebar hr {
+      margin: 10px 0; /* Add margin above and below the horizontal rule */
+      border: none; /* Remove default border */
+      border-top: 1px solid #ccc; /* Add top border */
+  }
+
+  /* Avatar Placeholder */
+  .avatar-placeholder {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+      color: #fff;
+      padding: 4px 8px;
+      border-radius: 5px;
+      font-size: 12px;
+      cursor: pointer; /* Change cursor to pointer on hover */
+      display: none; /* Hide by default */
+  }
+
+  .avatar:hover .avatar-placeholder {
+      display: block; /* Show on hover */
+  }
+
+.profile-info {
+    display: flex;
+    flex-wrap: wrap; /* Allow flex items to wrap */
+    margin-bottom: 20px;
+}
+
+.user-info p {
+    margin: 5px 10px; /* Add margin to the paragraphs */
+    flex: 1; /* Allow paragraphs to grow and shrink */
+    max-width: calc(100% - 20px); /* Set maximum width for paragraphs */
+    word-wrap: break-word; /* Wrap long words */
+}
+section {
+  width: 100%;
+  max-width: 600px;
+  background-color: #f8f1f1;
+  padding: 30px;
+  margin-bottom: 20px;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  align-items: right;
+  background-position: center;
+  height: auto; /* Set height to auto to fit the content */
+}
+
+/* Add your CSS styles here */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+#hotels {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 20px;
+}
+.hotel {
+  width: 30%;
+  background-color: #f9f9f9;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.hotel h3 {
+  margin-top: 0;
+}
+.hotel p {
+  margin: 5px 0;
+}
+.book-btn {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.book-btn:hover {
+  background-color: #0056b3;
+}
+
+

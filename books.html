@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aerial - Booking</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Aerial</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="flights.html">Flights</a></li>
+                <li><a href="hotels.html">Hotels</a></li>
+                <li><a href="books.html">Booking</a></li> <!-- Added Booking link -->
+                <li><a href="account.html">Account</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="booking-container">
+            <div class="booking-steps">
+                <div class="step">Cart</div>
+                <div class="step">Customer Information</div>
+                <div class="step">Payment Method</div>
+                <div class="step active">Confirmation</div>
+            </div>
+            <div class="customer-info">
+                <h2>Customer Information</h2>
+                <form id="customer-form">
+                    <input type="text" id="first-name" placeholder="First Name" required>
+                    <input type="text" id="last-name" placeholder="Last Name" required>
+                    <input type="email" id="email" placeholder="Email" required>
+                    <h3>Shipping Address</h3>
+                    <input type="text" id="address" placeholder="Address" required>
+                    <input type="text" id="city" placeholder="City" required>
+                    <input type="text" id="county" placeholder="County" required>
+                    <input type="text" id="zip-code" placeholder="Zip Code" required>
+                    <input type="tel" id="phone" placeholder="Phone Number" required>
+                </form>
+            </div>
+            <div class="payment-info">
+                <h2>Payment Method</h2>
+                <form id="payment-form">
+                    <input type="text" id="card-number" placeholder="Card Number" pattern="\d{12}" title="Please enter a 12-digit card number" required> <!-- Card number validation -->
+                    <input type="text" id="card-holder-name" placeholder="Cardholder Name" required>
+                    <input type="text" id="expiry-date" placeholder="Expiry Date (MM/YY)" required>
+                    <input type="text" id="ccv" placeholder="CCV" required>
+                </form>
+            </div>
+            <button id="pay-now-btn">Pay Now</button>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Areial. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+    <script>
+        // Function to redirect to successful.html page
+        function redirectToSuccessPage() {
+            window.location.href = 'successful.html';
+        }
+
+        // Event listener for "Pay Now" button click
+        document.getElementById('pay-now-btn').addEventListener('click', function() {
+            // Check if all required fields are filled
+            if (validateForm()) {
+                // If all fields are filled, redirect to successful.html page
+                redirectToSuccessPage();
+            } else {
+                // If any required field is not filled, display an alert
+                alert('Please fill out all required fields.');
+            }
+        });
+
+        // Function to validate form fields
+        function validateForm() {
+            var firstName = document.getElementById('first-name').value;
+            var lastName = document.getElementById('last-name').value;
+            var email = document.getElementById('email').value;
+            var address = document.getElementById('address').value;
+            var city = document.getElementById('city').value;
+            var county = document.getElementById('county').value;
+            var zipCode = document.getElementById('zip-code').value;
+            var phone = document.getElementById('phone').value;
+            var cardNumber = document.getElementById('card-number').value;
+            var cardHolderName = document.getElementById('card-holder-name').value;
+            var expiryDate = document.getElementById('expiry-date').value;
+            var ccv = document.getElementById('ccv').value;
+
+            // Check if any required field is empty
+            if (
+                firstName === '' || 
+                lastName === '' || 
+                email === '' || 
+                address === '' || 
+                city === '' || 
+                county === '' || 
+                zipCode === '' || 
+                phone === '' || 
+                cardNumber === '' || 
+                cardHolderName === '' || 
+                expiryDate === '' || 
+                ccv === ''
+            ) {
+                return false; // Return false if any required field is empty
+            } else {
+                return true; // Return true if all required fields are filled
+            }
+        }
+    </script>
+</body>
+</html>

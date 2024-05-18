@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Local USA Flights</title>
+  <link rel="stylesheet" href="style.css">
+   <link rel="stylesheet" href="flights.css"> <!-- Flights-specific CSS -->
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <h1>Aerial</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="flights.html">Flights</a></li>
+        <li><a href="hotels.html">Hotels</a></li>
+        <li><a href="books.html">Booking</a></li>
+        <li><a href="account.html">Account</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section id="flight-options">
+      <h2>Search Flights</h2>
+      <div class="filters">
+        <label for="from-location">From:</label>
+        <input type="text" id="from-location" placeholder="Departure location">
+        <label for="to-location">To:</label>
+        <input type="text" id="to-location" placeholder="Arrival location">
+        <label for="departure-date">Departure Date:</label>
+        <input type="date" id="departure-date">
+        <label for="return-date">Return Date:</label>
+        <input type="date" id="return-date">
+        <label for="class-filter">Class:</label>
+        <select id="class-filter">
+          <option value="all">All Classes</option>
+          <option value="economy">Economy</option>
+          <option value="premium">Premium</option>
+          <option value="business">Business</option>
+          <option value="first">First Class</option>
+        </select>
+        <label for="price-filter">Price:</label>
+        <select id="price-filter">
+          <option value="low-to-high">Low to High</option>
+          <option value="high-to-low">High to Low</option>
+        </select>
+        <button id="filter-flights">Search</button>
+      </div>
+      <div class="flight-results"></div>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2024 Local USA Flights. All rights reserved.</p>
+  </footer>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const flightOptions = [
+        { from: 'New York', to: 'Los Angeles', class: 'economy', price: 200 },
+        { from: 'Los Angeles', to: 'Chicago', class: 'premium', price: 500 },
+        { from: 'Chicago', to: 'Miami', class: 'business', price: 800 },
+        { from: 'Miami', to: 'Denver', class: 'economy', price: 300 },
+        { from: 'Denver', to: 'Seattle', class: 'premium', price: 600 },
+        { from: 'Seattle', to: 'Boston', class: 'business', price: 700 },
+        { from: 'Boston', to: 'Atlanta', class: 'economy', price: 250 },
+        { from: 'Atlanta', to: 'San Francisco', class: 'premium', price: 550 },
+        { from: 'San Francisco', to: 'Houston', class: 'business', price: 750 },
+        { from: 'Houston', to: 'Washington D.C.', class: 'economy', price: 400 }
+      ];
+
+      // Function to render the state options based on the selected from location
+      function renderStateOptions() {
+        const fromLocation = document.getElementById('from-location').value;
+        const stateOptions = flightOptions.filter(flight => flight.from === fromLocation).map(flight => flight.to);
+        const stateSelect = document.getElementById('to-location');
+        stateSelect.innerHTML = '<option value="">Select Arrival location</option>';
+        stateOptions.forEach(state => {
+          const option = document.createElement('option');
+          option.value = state;
+          option.textContent = state;
+          stateSelect.appendChild(option);
+        });
+      }
+
+      // Function to render flights based on selected filters
+      function renderFlights() {
+        const fromLocation = document.getElementById('from-location').value;
+        const toLocation = document.getElementById('to-location').value;
+        const classFilter = document.getElementById('class-filter').value;
+        const priceFilter = document.getElementById('price-filter').value;
+
+        // Logic to filter flights and display results
+        const filteredFlights = flightOptions.filter(flight => {
+          return (fromLocation === '' || flight.from === fromLocation) &&
+                 (toLocation === '' || flight.to === toLocation) &&
+                 (classFilter === 'all' || flight.class === classFilter);
+        });
+
+        const sortedFlights = priceFilter === 'low-to-high' ? filteredFlights.sort((a, b) => a.price - b.price) : filteredFlights.sort((a, b) => b.price - a.price);
+
+        const flightResults = document.querySelector('.flight-results');
+        flightResults.innerHTML = '';
+
+        sortedFlights.forEach(flight => {
+          const flightElement = document.createElement('div');
+          flightElement.classList.add('flight-option');
+          flightElement.innerHTML = `
+            <p><strong>From:</strong> ${flight.from}</p>
+            <p><strong>To:</strong> ${flight.to}</p>
+            <p><strong>Class:</strong> ${flight.class}</p>
+            <p><strong>Price:</strong> $${flight.price}</p>
+            <button class="book-flight">Book Now</button>
+          `;
+          flightResults.appendChild(flightElement);
+        });
+      }
+
+      // Event listener for from location change
+      document.getElementById('from-location').addEventListener('change', function() {
+        renderStateOptions();
+      });
+
+      // Event listener for filter flights button click
+      document.getElementById('filter-flights').addEventListener('click', function() {
+        renderFlights();
+      });
+
+      // Event listener for book now button click
+      document.querySelector('.flight-results').addEventListener('click', function(event) {
+        if (event.target.classList.contains('book-flight')) {
+          window.location.href = 'books.html'; // Redirect to books.html
+        }
+      });
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const flightOptions = [
+        // Flight options data
+      ];
+
+      function renderFlights() {
+        const flightResults = document.getElementById('flight-options');
+        flightResults.innerHTML = '';
+
+        flightOptions.forEach(flight => {
+          const flightElement = document.createElement('div');
+          flightElement.classList.add('flight-option');
+          flightElement.innerHTML = `
+            <p><strong>From:</strong> ${flight.from}</p>
+            <p><strong>To:</strong> ${flight.to}</p>
+            <p><strong>Class:</strong> ${flight.class}</p>
+            <p><strong>Price:</strong> $${flight.price}</p>
+          `;
+
+          // Create "Book Now" button and append it after the price paragraph
+          const bookNowButton = document.createElement('button');
+          bookNowButton.textContent = 'Book Now';
+          bookNowButton.classList.add('book-flight');
+          bookNowButton.addEventListener('click', function() {
+            // Handle book flight functionality here
+          });
+          flightElement.appendChild(bookNowButton);
+
+          flightResults.appendChild(flightElement);
+        });
+      }
+
+      // Other event listeners and functions
+
+      // Initial rendering of flight options
+      renderFlights();
+    });
+    });
+
+  </script>
+
+
+</body>
+</html>

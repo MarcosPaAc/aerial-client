@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/aerial-client/static/css/main.4b1c4cff.css",
+    "main.js": "/aerial-client/static/js/main.d8b6f373.js",
+    "index.html": "/aerial-client/index.html",
+    "main.4b1c4cff.css.map": "/aerial-client/static/css/main.4b1c4cff.css.map",
+    "main.d8b6f373.js.map": "/aerial-client/static/js/main.d8b6f373.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4b1c4cff.css",
+    "static/js/main.d8b6f373.js"
+  ]
+}
